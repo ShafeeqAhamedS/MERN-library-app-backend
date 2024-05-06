@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const {addNewBook, getAllBooks, updateBook} = require('../controllers/booksController')
-const {validateBook} = require('../controllers/validateController')
+const {getAllBooks, addNewBook, updateBook} = require('../controllers/booksController')
+const {getISBN} = require('../controllers/validateController')
 
-router.route('/').post(addNewBook).get(getAllBooks).patch(updateBook)
-router.route('/validate').post(validateBook)
+router.route('/').get(getAllBooks).post(addNewBook).patch(updateBook)
+router.route('/').post(getISBN)
 
 module.exports = router
